@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 1;
+use Test::More tests => 2;
 use Test::Fatal;
 use Dancer::Serializer::UUEncode;
 
@@ -19,5 +19,11 @@ like(
     exception { $s->deserialize($data) },
     qr/^Couldn't thaw unpacked content/,
     'Bad thaw throws exception',
+);
+
+# try to deserialize undefed data
+ok(
+    exception { $s->deserialize(undef) },
+    'deserializing undefed data fails',
 );
 
