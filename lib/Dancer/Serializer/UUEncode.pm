@@ -98,6 +98,10 @@ C<serialize>.
 Helper function to create a new L<Dancer::Serializer::UUEncode> object and run
 C<deserialize>.
 
+=head2 content_type
+
+Returns the content type of UU encode which is B<text/uuencode>.
+
 =head1 SEE ALSO
 
 The Dancer Advent Calendar 2010.
