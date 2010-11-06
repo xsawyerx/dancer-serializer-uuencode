@@ -25,4 +25,4 @@ is_deeply( $hash_from, $hash_ser, 'from_uuencode() and deserialize() match' );
 
 is_deeply( $hash_ser, $hashref, 'serialize() and deserialize() correctly' );
 
-is( $s->content_type, 'text-uuencode', 'correct content type' );
+is( $s->content_type, 'text/uuencode', 'correct content type' );
