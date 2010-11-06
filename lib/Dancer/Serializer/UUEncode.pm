@@ -13,13 +13,13 @@ sub init {
 
 sub loaded {
     require Storable;
-    Storable->import('nfreeze');
+    Storable->import( qw/ nfreeze thaw / );
 }
 
 sub serialize {
     my ( $self, $entity ) = @_;
 
-    return pack( 'u', nfreeze $entity );
+    return pack( 'u', nfreeze($entity) );
 }
 
 sub deserialize {
@@ -38,7 +38,7 @@ sub from_uuencode {
     my ($uuencode) = @_;
     my $s = Dancer::Serializer::UUEncode->new;
 
-    return $s->deserializer($uuencode);
+    return $s->deserialize($uuencode);
 }
 
 sub to_uuencode {
