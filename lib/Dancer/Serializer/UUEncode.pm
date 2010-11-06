@@ -66,7 +66,37 @@ This serializer serializes your data structure to UU Encoding. Since UU Encoding
 is just encoding and not a serialization format, it first freezes it using
 L<Storable> and only then serializes it.
 
-It uses L<Storable>'s C<nfreeze> function.
+It uses L<Storable>'s C<nfreeze> and C<thaw> functions.
+
+=head1 SUBROUTINES/METHODS
+
+=head2 init
+
+An initializer that is called automatically by Dancer.
+
+Runs C<loaded>.
+
+=head2 loaded
+
+Lazily loads Storable and imports the appropriate functions.
+
+=head2 serialize
+
+Serializes a given data to UU encoding after freezing it with L<Storable>.
+
+=head2 deserialize
+
+Deserializes a given data from UU encoding after thawing it with L<Storable>.
+
+=head2 from_uuencode
+
+Helper function to create a new L<Dancer::Serializer::UUEncode> object and run
+C<serialize>.
+
+=head2 to_uuencode
+
+Helper function to create a new L<Dancer::Serializer::UUEncode> object and run
+C<deserialize>.
 
 =head1 SEE ALSO
 
