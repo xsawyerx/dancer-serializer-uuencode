@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 5;
+use Test::More tests => 6;
 use Dancer::Serializer::UUEncode;
 
 my $s = Dancer::Serializer::UUEncode->new();
@@ -25,3 +25,4 @@ is_deeply( $hash_from, $hash_ser, 'from_uuencode() and deserialize() match' );
 
 is_deeply( $hash_ser, $hashref, 'serialize() and deserialize() correctly' );
 
+is( $s->content_type, 'text-uuencode', 'correct content type' );
